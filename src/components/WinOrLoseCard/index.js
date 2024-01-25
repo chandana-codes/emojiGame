@@ -5,7 +5,7 @@ const won = 'https://assets.ccbp.in/frontend/react-js/won-game-img.png'
 const lose = 'https://assets.ccbp.in/frontend/react-js/lose-game-img.png'
 
 const WinOrLoseCard = props => {
-  const {isWon, onClickPlayAgain, score} = props
+  const {isWon, onClickPlayAgain, currentScore} = props
   const imgUrl = isWon ? won : lose
   const gameStatus = isWon ? 'You Won' : 'You Lose'
   const scoreLabel = isWon ? 'Best Score' : 'Score'
@@ -13,9 +13,9 @@ const WinOrLoseCard = props => {
   return (
     <div className="cardContainer">
       <div className="cardContent">
-        <h1>{gameStatus}</h1>
-        <p>{scoreLabel}</p>
-        <h1>{score}/12</h1>
+        <h1 className="heading">{gameStatus}</h1>
+        <p className="scoreLabel">{scoreLabel}</p>
+        <p className="score">{currentScore}/12</p>
         <button
           type="button"
           onClick={onClickPlayAgain}

@@ -2,7 +2,7 @@
 import './index.css'
 
 const Navbar = props => {
-  const {score, isGameInProgress, topScore} = props
+  const {currentScore, isGameInProgress, topScore} = props
 
   return (
     <nav className="navbar">
@@ -16,7 +16,7 @@ const Navbar = props => {
       </div>
       {isGameInProgress && (
         <div className="scoreContainer">
-          <p>Score: {score}</p>
+          <p>Score: {currentScore}</p>
           <p>Top Score: {topScore}</p>
         </div>
       )}

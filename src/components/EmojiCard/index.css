@@ -1,1 +1,12 @@
 /* Write your code here. */
+.emojiCard {
+  display: flex;
+  margin: 12px;
+}
+
+.emojiBtn {
+  border: 1px solid rgb(250, 245, 245);
+  background-color: transparent;
+  padding: 24px;
+  border-radius: 24px;
+}

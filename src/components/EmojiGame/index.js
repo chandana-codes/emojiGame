@@ -8,7 +8,7 @@ import WinOrLoseCard from '../WinOrLoseCard/index'
 class EmojiGame extends Component {
   state = {clickedEmojisList: [], isGameInProgress: true, topScore: 0}
 
-  onClickPlayAgain = () => {
+  resetGame = () => {
     this.setState({clickedEmojisList: [], isGameInProgress: true})
   }
 
@@ -16,22 +16,23 @@ class EmojiGame extends Component {
     const {emojisList} = this.props
     const {clickedEmojisList} = this.state
     const isWon = clickedEmojisList.length === emojisList.length
+    console.log(isWon)
 
     return (
       <WinOrLoseCard
         isWon={isWon}
-        onClickPlayAgain={this.onClickPlayAgain}
-        score={clickedEmojisList.length}
+        onClickPlayAgain={this.resetGame}
+        currentScore={clickedEmojisList.length}
       />
     )
   }
 
-  finishGameAndSetTopScore = score => {
+  finishGameAndSetTopScore = currentScore => {
     const {topScore} = this.state
     let newTopScore = topScore
 
-    if (score > topScore) {
-      newTopScore = score
+    if (currentScore > topScore) {
+      newTopScore = currentScore
     }
 
     this.setState({topScore: newTopScore, isGameInProgress: false})
@@ -46,12 +47,17 @@ class EmojiGame extends Component {
     if (isEmojiPresent) {
       this.finishGameAndSetTopScore(clickedEmojisLength)
     } else {
-      if (emojisList.length - 1 === clickedEmojisList) {
-        this.finishGameAndSetTopScore(emojisList.length)
-      }
-      this.setState(prevState => ({
-        clickedEmojisList: [...prevState.clickedEmojisList, id],
-      }))
+      this.setState(
+        prevState => ({
+          clickedEmojisList: [...prevState.clickedEmojisList, id],
+        }),
+        () => {
+          const {clickedEmojisList: newClickedEmojisList} = this.state
+          if (emojisList.length === newClickedEmojisList.length) {
+            this.finishGameAndSetTopScore(emojisList.length)
+          }
+        },
+      )
     }
   }
 
@@ -82,7 +88,7 @@ class EmojiGame extends Component {
     return (
       <div className="container">
         <Navbar
-          score={clickedEmojisList.length}
+          currentScore={clickedEmojisList.length}
           isGameInProgress={isGameInProgress}
           topScore={topScore}
         />

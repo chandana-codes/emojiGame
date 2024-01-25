@@ -1,1 +1,44 @@
 /* Write your code here. */
+.cardContainer {
+  border: 1px solid rgb(250, 245, 245);
+  background-color: transparent;
+  padding: 24px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto';
+}
+
+.cardContent {
+  font-weight: 500;
+  color: #fff;
+}
+
+.heading {
+  font-size: 60px;
+}
+
+.score {
+  color: #6a59ff;
+  font-size: 40px;
+}
+
+.scoreLabel {
+  font-size: 30px;
+}
+
+.palyAgainBtn {
+  background-color: #ffce27;
+  border: 0px;
+  border-radius: 8px;
+  color: #3d3d3d;
+  padding: 12px;
+  font-weight: 600;
+}
+
+.winOrLoseImg {
+  width: 90%;
+  align-self: center;
+}

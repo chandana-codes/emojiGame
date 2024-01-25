@@ -1,1 +1,37 @@
 /* Write your code here. */
+.navbar {
+  background-color: #9796f0;
+  color: #ffffff;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: 'Roboto';
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.LogoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 12px;
+}
+
+.emojiLogo {
+  width: 40px;
+  height: 40px;
+}
+
+.scoreContainer {
+  padding-right: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+p {
+  margin-right: 12px;
+}
